@@ -3,12 +3,21 @@ require_once './commons/helpers.php';
 require_once './vendor/autoload.php';
 
 use App\Controllers\DashboardController;
+use App\Controllers\LoginController;
 use App\Controllers\SubjectController;
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 // $url mong muốn của người gửi request
 switch ($url) {
     case 'login':
+        break;
+    case 'dang-ky':
+        $ctr = new LoginController();
+        $ctr->registerForm();
+        break;
+    case 'tao-tai-khoan':
+        $ctr = new LoginController();
+        $ctr->createAccount();
         break;
     case 'dashboard':
         $ctr = new DashboardController();
