@@ -2,8 +2,8 @@
 require_once './commons/helpers.php';
 require_once './vendor/autoload.php';
 
+use App\Controllers\DashboardController;
 use App\Controllers\SubjectController;
-
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 // $url mong muốn của người gửi request
@@ -11,6 +11,8 @@ switch ($url) {
     case 'login':
         break;
     case 'dashboard':
+        $ctr = new DashboardController();
+        $ctr->index();
         break;
     case 'mon-hoc':
         $ctr = new SubjectController();
@@ -25,8 +27,12 @@ switch ($url) {
         $ctr->saveAdd();
         break;
     case 'mon-hoc/cap-nhat':
+        $ctr = new SubjectController();
+        $ctr->editForm();
         break;
     case 'mon-hoc/luu-cap-nhat':
+        $ctr = new SubjectController();
+        $ctr->saveEdit();
         break;
     case 'mon-hoc/xoa':
         $ctr = new SubjectController();
