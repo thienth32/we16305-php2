@@ -11,7 +11,7 @@
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 21/01/2022 14:47:04
+ Date: 22/01/2022 12:58:50
 */
 
 SET NAMES utf8mb4;
@@ -100,7 +100,9 @@ COMMIT;
 DROP TABLE IF EXISTS `student_quiz_detail`;
 CREATE TABLE `student_quiz_detail` (
   `student_quiz_id` int NOT NULL,
-  `answer_id` int DEFAULT NULL
+  `quiz_id` int NOT NULL,
+  `answer_id` int NOT NULL,
+  PRIMARY KEY (`student_quiz_id`,`quiz_id`,`answer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
@@ -138,7 +140,7 @@ CREATE TABLE `subjects` (
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `author_id` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of subjects
@@ -146,6 +148,8 @@ CREATE TABLE `subjects` (
 BEGIN;
 INSERT INTO `subjects` VALUES (1, 'Tin học cơ sở\n', 1);
 INSERT INTO `subjects` VALUES (2, 'Nhập môn lập trình - FA19\n', 1);
+INSERT INTO `subjects` VALUES (3, 'Lập trình PHP2', NULL);
+INSERT INTO `subjects` VALUES (5, 'Lập trình C++', NULL);
 COMMIT;
 
 -- ----------------------------
