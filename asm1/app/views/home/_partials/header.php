@@ -26,5 +26,24 @@
                 </ul>
 
             </div>
+            <div class="d-flex">
+                <ul class="navbar-nav">
+                    <?php if(!isset($_SESSION['auth'])):?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="<?= BASE_URL . 'login'?>">Đăng nhập</a>
+                    </li>
+                    <?php else :?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?= $_SESSION['auth']['name']?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Thông tin cá nhân</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL . 'logout'?>">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <?php endif ?>
+                </ul>
+            </form>
         </div>
     </nav>

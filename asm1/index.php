@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './commons/helpers.php';
 require_once './vendor/autoload.php';
 
@@ -15,6 +16,16 @@ switch ($url) {
         $ctr->index();
         break;
     case 'login':
+        $ctr = new LoginController();
+        $ctr->loginForm();
+        break;
+    case 'post-login':
+        $ctr = new LoginController();
+        $ctr->postLogin();
+        break;
+    case 'logout':
+        $ctr = new LoginController();
+        $ctr->logout();
         break;
     case 'dang-ky':
         $ctr = new LoginController();
@@ -53,6 +64,7 @@ switch ($url) {
         $ctr->remove();
         break;
     case 'mon-hoc/chi-tiet':
+        checkRole(STUDENT_ROLE);
         $ctr = new HomeController();
         $ctr->detailSubject();
         break;
