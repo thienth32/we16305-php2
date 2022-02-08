@@ -3,12 +3,17 @@ require_once './commons/helpers.php';
 require_once './vendor/autoload.php';
 
 use App\Controllers\DashboardController;
+use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\SubjectController;
 
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 // $url mong muốn của người gửi request
 switch ($url) {
+    case '/':
+        $ctr = new HomeController();
+        $ctr->index();
+        break;
     case 'login':
         break;
     case 'dang-ky':
@@ -48,6 +53,8 @@ switch ($url) {
         $ctr->remove();
         break;
     case 'mon-hoc/chi-tiet':
+        $ctr = new HomeController();
+        $ctr->detailSubject();
         break;
     case 'quiz':
         break;
