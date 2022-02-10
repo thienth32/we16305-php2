@@ -16,7 +16,7 @@
                     <?php if(isset($_GET['msg'])): ?>
                         <p class="text-danger"><?= $_GET['msg'] ?></p>
                     <?php endif ?>
-                    <form action="<?= BASE_URL . 'post-login'?>" method="POST">
+                    <form action="<?= BASE_URL . 'login'?>" method="POST">
                         <div class="form-group">
                             <label for="">Email</label>
                             <input type="text" class="form-control" name="email">
