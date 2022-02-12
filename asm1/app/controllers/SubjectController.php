@@ -10,6 +10,10 @@ class SubjectController{
         include_once "./app/views/mon-hoc/index.php";
     }
 
+    public function detail($sid, $sname){
+        var_dump($sid, $sname);die;
+    }
+
     public function addForm(){
         include_once "./app/views/mon-hoc/add-form.php";
     }
