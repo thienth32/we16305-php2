@@ -11,6 +11,9 @@ definedRoute($url);
 
 
 // nơi định nghĩa ra các đường dẫn cho website
+// - url quá nhiều, quá dài
+// - url có tham số query string ?id=1&name=something: k seo đc
+// - có quá ít tính năng
 // switch ($url) {
 //     case '/':
 //         $ctr = new HomeController();
