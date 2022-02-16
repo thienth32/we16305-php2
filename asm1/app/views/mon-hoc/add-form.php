@@ -1,4 +1,4 @@
-<form action="<?= BASE_URL . 'mon-hoc/luu-tao-moi'?>" method="post">
+<form action="" method="post">
     <div>
         <label for="">Tên danh mục</label>
         <input type="text" name="name">

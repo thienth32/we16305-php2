@@ -1,6 +1,9 @@
 <?php
 namespace App\Models;
-class Subject extends BaseModel{
-    protected $tableName = 'subjects';
+use Illuminate\Database\Eloquent\Model;
+class Subject extends Model{
+    protected $table = 'subjects';
+    protected $fillable = ['name'];
+    public $timestamps = false;
 }
 ?>

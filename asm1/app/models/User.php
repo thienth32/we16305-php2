@@ -1,7 +1,10 @@
 <?php
 namespace App\Models;
-class User extends BaseModel{
-    protected $tableName = 'users';
+use Illuminate\Database\Eloquent\Model;
+class User extends Model{
+    protected $table = 'users';
+    public $timestamps = false;
+    protected $fillable = ['email', 'password', 'role_id'];
 
     public function getRoleName(){
         $role = Role::where(['id', '=', $this->role_id])->first();

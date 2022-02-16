@@ -4,6 +4,7 @@ use App\Controllers\DashboardController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\SubjectController;
+use App\Models\User;
 use Phroute\Phroute\RouteCollector;
 function definedRoute($url){
     $router = new RouteCollector();
@@ -14,8 +15,25 @@ function definedRoute($url){
             die;
         }
     });
+    // Model::find([2, 9]);
+    // status 1 - đã đặt, 2 - xác nhận, 3 - đang giao, 4 - hoàn thành, 5 - hủy
+    // Model::whereIn('id', [3, 9])->get();
+    // Model::whereNotIn(tên cột, [mảng giá trị])->get();
 
-    $router->get('/', [HomeController::class, 'index']);
+    $router->get('/', function(){
+        $arr = [
+            'email' => 'thienth@fpt.edu.vn',
+            'password' => '123456',
+            'role_id' => 1
+        ];
+        $model = new User();
+        $model->fill($arr);
+
+        echo "<pre>";
+        var_dump($model->email);die;
+
+    });
+    // $router->get('/', [HomeController::class, 'index']);
     $router->get('profile', function(){
         return "Trang thông tin cá nhân";
     }, ['before' => 'auth']);
@@ -30,6 +48,10 @@ function definedRoute($url){
 
     $router->group(['prefix' => 'mon-hoc', 'before' => 'auth'], function($router){
         $router->get('/', [SubjectController::class, 'index']);
+        $router->get('tao-moi', [SubjectController::class, 'addForm']);
+        $router->post('tao-moi', [SubjectController::class, 'saveAdd']);
+        $router->get('cap-nhat/{id}', [SubjectController::class, 'editForm']);
+        $router->post('cap-nhat/{id}', [SubjectController::class, 'saveEdit']);
         $router->get('{slug}-sid{id}', [SubjectController::class, 'detail']);
         $router->get('xoa/{id}/{permanance}?', 
                 function($id, $permanance = false){

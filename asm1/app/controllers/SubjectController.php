@@ -18,40 +18,24 @@ class SubjectController{
         include_once "./app/views/mon-hoc/add-form.php";
     }
 
-    public function editForm(){
-        $id = $_GET['id'];
-        $model = Subject::where(['id', '=', $id])->first();
-        if(!$model){
-            header('location: ' . BASE_URL . 'mon-hoc');
-            die;
-        }
+    public function editForm($id){
+        $model = Subject::find($id);
 
         include_once "./app/views/mon-hoc/edit-form.php";
     }
 
     public function saveAdd(){
-        $model = new Subject();
-        $data = [
+        Subject::create([
             'name' => $_POST['name']
-        ];
-        $model->insert($data);
+        ]);
         header('location: ' . BASE_URL . 'mon-hoc');
         die;
     }
 
-    public function saveEdit(){
-        $id = $_GET['id'];
-        $model = Subject::where(['id', '=', $id])->first();
-        if(!$model){
-            header('location: ' . BASE_URL . 'mon-hoc');
-            die;
-        }
-
-        $data = [
-            'name' => $_POST['name']
-        ];
-
-        $model->update($data);
+    public function saveEdit($id){
+        $model = Subject::find($id);
+        $model->name = $_POST['name'];
+        $model->save();
         header('location: ' . BASE_URL . 'mon-hoc');
         die;
     }
