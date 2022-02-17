@@ -1,4 +1,6 @@
 <?php
+
+// Tạo kết nối đến csdl
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
@@ -24,4 +26,13 @@ $capsule->setAsGlobal();
 
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
+// kết thúc kết nối csdl
+
+// setup bladeone
+use eftec\bladeone\BladeOne;
+function view($viewFile, $data = []){
+    $blade = new BladeOne('./app/views', './storage', BladeOne::MODE_DEBUG);
+    echo $blade->run($viewFile, $data);
+}
+
 ?>

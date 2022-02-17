@@ -7,7 +7,10 @@ class SubjectController{
     public function index(){
         $subjects = Subject::all();
 
-        include_once "./app/views/mon-hoc/index.php";
+        return view('mon-hoc.index', [
+            'monhoc' => $subjects,
+            'name' => 'thienth'
+        ]);
     }
 
     public function detail($slug, $id){

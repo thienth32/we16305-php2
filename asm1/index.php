@@ -2,7 +2,7 @@
 session_start();
 require_once './commons/helpers.php';
 require_once './vendor/autoload.php';
-require_once './commons/db.php';
+require_once './commons/utils.php';
 require_once './commons/route.php'; // bắt buộc ở sau file autoload
 
 // $url mong muốn của người gửi request
