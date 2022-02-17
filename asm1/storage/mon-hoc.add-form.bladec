@@ -1,0 +1,13 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('main-content'); ?>
+<form action="" method="post">
+ <div>
+ <label for="">Tên danh mục</label>
+ <input type="text" name="name">
+ </div>
+ <div>
+ <button type="submit">Lưu</button>
+ </div>
+</form>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.main'); } ?>

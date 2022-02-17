@@ -18,7 +18,7 @@ class SubjectController{
     }
 
     public function addForm(){
-        include_once "./app/views/mon-hoc/add-form.php";
+        return view('mon-hoc.add-form');
     }
 
     public function editForm($id){

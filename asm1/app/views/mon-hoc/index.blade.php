@@ -1,4 +1,7 @@
-<table>
+@extends('layouts.main')
+@section('main-content')
+    
+<table class="table table-hover">
     <thead>
         <th>Mã môn</th>
         <th>Tên môn</th>
@@ -21,3 +24,4 @@
         @endforeach
     </tbody>
 </table>
+@endsection
