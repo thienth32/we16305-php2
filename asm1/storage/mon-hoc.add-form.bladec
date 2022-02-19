@@ -1,13 +1,30 @@
 <?php $_shouldextend[1]=1; ?>
 <?php $this->startSection('main-content'); ?>
 <form action="" method="post">
- <div>
+ <div class="col-6 offset-3">
+ <div class="card">
+ <div class="card-header">
+ <h4>Tạo mới môn học</h4>
+ </div>
+ <div class="card-body">
+ <div class="form-group">
  <label for="">Tên danh mục</label>
- <input type="text" name="name">
+ <input type="text" class="form-control" name="name">
  </div>
  <div>
- <button type="submit">Lưu</button>
+ <button class="btn btn-primary" type="submit">Lưu</button>
  </div>
+ </div>
+ </div>
+ </div>
+ 
 </form>
+<?php $this->stopSection(); ?>
+<?php $this->startSection('page-script'); ?>
+<script>
+ $('button').click(function(){
+ console.log(1);
+ });
+</script>
 <?php $this->stopSection(); ?>
 <?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.main'); } ?>

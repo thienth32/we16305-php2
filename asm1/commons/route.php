@@ -9,6 +9,9 @@ use Phroute\Phroute\RouteCollector;
 function definedRoute($url){
     $router = new RouteCollector();
 
+    $router->get('test-layout', function(){
+        return view('layouts.main');
+    });
     $router->filter('auth', function(){
         if(!isset($_SESSION['auth']) || empty($_SESSION['auth'])){
             header('location: ' . BASE_URL . 'login');
